@@ -9,7 +9,7 @@ pipeline {
         MAVEN_HOME = '/usr/local/maven'  // Path to Maven installation (can be adjusted)
     }
     tools {
-        maven 'Maven-3.9.9'  // Assuming Maven 3.8.1 is installed in Jenkins tools section
+        maven '3.9.9'  // Assuming Maven 3.8.1 is installed in Jenkins tools section
     }
     stages {
         stage('Checkout Code') {
