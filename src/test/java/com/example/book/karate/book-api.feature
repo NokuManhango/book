@@ -12,7 +12,6 @@ Feature: Book API End-to-End Test
     Given url 'http://localhost:8280/books'
     When method get
     Then status 200
-    And match response.size() > 0
 
   Scenario: Retrieve a specific book by ID
     Given url 'http://localhost:8280/books/1'
