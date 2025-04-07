@@ -1,0 +1,22 @@
+- name: Deploy Docker Container Locally
+  hosts: local
+  become: true
+
+  tasks:
+    - name: Stop old container
+      docker_container:
+        name: book-app
+        state: absent
+
+    - name: Pull image from DockerHub
+      docker_image:
+        name: noku/book-app
+        tag: "{{ build_number }}"
+        source: pull
+
+    - name: Run new container
+      docker_container:
+        name: book-app
+        image: noku/book-app:{{ build_number }}
+        ports:
+          - "8080:8080"
